@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Industrial Inspection System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>Industrial Inspection System</h1>
+      <p>AI-Based Object Recognition for Robotic Applications</p>
+    </div>
+    <span class="status">● System Online</span>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <div class="stat-card">
+        <p>Total Inspections</p>
+        <h2 id="total">0</h2>
+      </div>
+      <div class="stat-card">
+        <p>Accepted Objects</p>
+        <h2 id="passed">0</h2>
+      </div>
+      <div class="stat-card">
+        <p>Defective Objects</p>
+        <h2 id="failed">0</h2>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Object Inspection</h2>
+      <p class="muted">
+        Upload an image of an industrial component to inspect it.
+      </p>
+
+      <label class="upload" for="imageInput">
+        <span class="upload-icon">＋</span>
+        <strong>Choose Object Image</strong>
+        <span>JPG, PNG or WEBP</span>
+      </label>
+      <input type="file" id="imageInput"
+             accept="image/*" hidden>
+
+      <div id="previewBox" class="preview-box">
+        <p>No image selected</p>
+      </div>
+
+      <label for="objectType">Object category</label>
+      <select id="objectType">
+        <option value="Metal Component">Metal Component</option>
+        <option value="Bottle">Bottle</option>
+        <option value="Electronic Part">Electronic Part</option>
+        <option value="Mechanical Part">Mechanical Part</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button id="inspectBtn" disabled>
+        Run Demo Inspection
+      </button>
+
+      <p class="notice">
+        Demo mode: results are simulated, not produced by a trained AI model.
+      </p>
+    </section>
+
+    <section class="panel result-panel">
+      <h2>Inspection Result</h2>
+      <div id="result" class="result">
+        <div class="empty-icon">◎</div>
+        <h3>Waiting for inspection</h3>
+        <p class="muted">Upload an image to begin.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Inspection History</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Object</th>
+              <th>Result</th>
+              <th>Mode</th>
+            </tr>
+          </thead>
+          <tbody id="history">
+            <tr>
+              <td colspan="4" class="muted">
+                No inspections yet
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button id="clearBtn" class="secondary">
+        Clear History
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    AI-Based Object Recognition System | Industrial Inspection Project
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
